@@ -1,0 +1,58 @@
+.OuterContainer{
+    /* border: 2px solid blue; */
+    background-image: linear-gradient(to right, rgb(246,238,248),rgb(246,238,248), #fff,rgb(238,259,248));
+}
+.FlexContainer{
+    max-width: var(--max-screen-width);
+    /* border: 2px solid red; */
+    display: flex;
+    align-items: center;
+    margin: 0px auto 0 auto;
+    padding: 20px 0 0 0;
+}
+.LogoContainer{
+    width: 25%;
+    height: auto;
+    /* border: 2px solid orange; */
+}
+.LogoContainer img{
+    width: 100%;
+}
+.RightContainer{
+    display: flex;
+    align-items: center;
+    width: 70%;
+    /* border: 2px solid pink; */
+    justify-content: space-between;
+}
+.ListContainer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* border: 2px solid violet; */
+    width: 70%;
+}
+.ListContainer li{
+    list-style: none;
+    font-family: 'OpenSans-SemiBold';
+    color: rgb(0,0,0,0.6);
+    font-size: 17px;
+}
+.ConnectMetamask{
+    width: 20%;
+    /* border: 2px solid yellow; */
+}
+.ConnectMetamask button{
+  
+    width: 100%;
+    outline:none;
+    padding: 10px;
+    border: 2px solid var(--blue);
+    border-radius: 10px;
+    color: var(--blue);
+    font-family: 'OpenSans-SemiBold';
+    font-size: 16px;
+    background: linear-gradient(97.88deg, rgba(40, 41, 116, 0.1) 43.92%, rgba(27, 88, 147, 0.1) 112.93%);
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+}
