@@ -5,6 +5,7 @@ import arrow from '../../../assets/images/arrow.png'
 import bitcoin from '../../../assets/images/bitcoin.png'
 import ethereum from '../../../assets/images/ethereum.png'
 import dodgecoin from '../../../assets/images/dodgecoin.png'
+import Process from "../ProcessSection/Process"
 export default function HeroSection(){
     return(
        <div className={classes.OuterContainer}>
@@ -38,6 +39,29 @@ export default function HeroSection(){
                         </div>
                     </div>
                 </div>
+            </div>
+            <div className={classes.StatsContainer}>
+                <div className={classes.OuterStatsContainer}>
+                    <div className={classes.ReceivedApplicationContainer}>
+                        <p>4000+</p>
+                        <p>Application Received</p>
+                    </div>
+                    <div className={classes.ServedApplication}>
+                        <p>2800+</p>
+                        <p>Application Served</p>
+                    </div>
+                    <div className={classes.GovernmentOfficials}>
+                        <p>100+</p>
+                        <p>Government Officials</p>
+                    </div>
+                    <div className={classes.ActiveUsers}>
+                        <p>500+</p>
+                        <p>Active users</p>
+                    </div>
+                </div>
+            </div>
+            <div className={classes.ProcessContainer}>
+                <Process/>
             </div>
         </div>
        </div>
