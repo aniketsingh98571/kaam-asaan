@@ -1,0 +1,7 @@
+.FooterContainer{
+    background: linear-gradient(99.41deg, #282974 29.58%, #1C5590 122.41%);
+box-shadow: 4px 0px 20px rgba(0, 0, 0, 0.8);
+}
+.TopContainer{
+    display: flex;
+}
