@@ -1,7 +1,66 @@
 .FooterContainer{
     background: linear-gradient(99.41deg, #282974 29.58%, #1C5590 122.41%);
 box-shadow: 4px 0px 20px rgba(0, 0, 0, 0.8);
+padding: 60px 0;
 }
 .TopContainer{
     display: flex;
+    /* border: 2px solid pink; */
+    width: 90%;
+    margin: 0 auto;
+    justify-content: space-around;
+}
+.FirstContainer{
+    /* border: 2px solid orange; */
+    width: 20%;
+}
+.LogoContainer{
+    width: 150px;
+    height: auto;
+}
+.LogoContainer img{
+    width: 100%;
+}
+.LogoContainer p{
+    text-align: center;
+    color: var(--white);
+    font-family: 'OpenSans-SemiBold';
+}
+.SocialMediaContainer{
+    /* border: 2px solid red; */
+    width: 60%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin:  30px 0 0 12px;
+}
+.SecondContainer,.ThirdContainer{
+    width: 20%;
+}
+.MainText p{
+    color: var(--white);
+    font-family: 'OpenSans-SemiBold';
+    font-size: 20px;
+}
+.SecondaryContainer{
+    margin: 10px 0 10px 0;
+}
+.SecondaryContainer p{
+    color: var(--white);
+    font-family: 'OpenSans-Regular';
+    margin: 20px 0 0 0;
+}
+.FourthContainer p{
+    color: var(--white);
+    font-family: 'OpenSans-SemiBold';
+    font-size: 20;
+    
+}
+.FourthContainer p img{
+    margin:  0 0px 0 10px;
+}
+.BelowContainer{
+    color: var(--white);
+    text-align: center;
+    font-family: 'OpenSans-Regular';
 }

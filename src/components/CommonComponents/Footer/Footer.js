@@ -1,6 +1,6 @@
 import React from "react"
 import classes from './Footer.module.css'
-import logo from '../../../assets/images/logo.png'
+import logo from '../../../assets/images/no_text_logo.png'
 import facebook from '../../../assets/images/facebook.png'
 import instagram from '../../../assets/images/instagram.png'
 import email from '../../../assets/images/email.png'
@@ -14,7 +14,8 @@ export default function Footer(){
                     <div className={classes.TopContainer}>
                         <div className={classes.FirstContainer}>
                             <div className={classes.LogoContainer}>
-                                <img src={logo} alt="logo"/>    
+                                <img src={logo} alt="logo"/> 
+                                <p>KAAM ASAAN</p>   
                             </div>
                             <div className={classes.SocialMediaContainer}>
                                 <img src={facebook} alt="facebook"/>
