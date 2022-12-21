@@ -1,0 +1,111 @@
+.InnerContainer{
+    max-width: var(--max-screen-width);
+    margin: 0 auto;
+   position: relative;
+}
+
+.UpperContainer{
+    /* border: 2px solid red; */
+    width: 800px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.SearchContainer{
+    width: 70%;
+    display: flex;
+    align-items: center;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+box-shadow: 0px 1px 12px rgba(0, 0, 0, 0.08);
+border-radius: 15px;
+background-color: var(--white);
+padding:  0 0 0 15px;
+}
+.SearchIconContainer{
+    width: 5%;
+}
+.SearchIconContainer img{
+    width: 70%;
+    height: auto;
+  
+}
+.InputSearchContainer{
+    width: 90%;
+}
+.InputSearchContainer input{
+    width: 100%;
+    padding: 15px 0 15px 10px;
+    border: none;
+    outline: none;
+    font-family: 'OpenSans-Regular';
+}
+.InputSearchContainer input::placeholder{
+    font-size: 16px;
+    opacity: 0.7;
+}
+.FilterContainer{
+    width: 20%;
+    display: flex;
+    align-items: center;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 1px 12px rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    background-color: var(--white);
+    justify-content: space-around;
+    padding: 10px 0;
+}
+.FilterText{
+    width: 40%;
+}
+.FilterText p{
+    font-family: 'OpenSans-Regular';
+    font-size: 20px;
+    opacity: 0.8;
+}
+.FilterImage{
+    width: 15%;
+    /* border: 2px solid red; */
+}
+.FilterImage img{
+    width: 100%;
+    height: auto;
+}
+.UpperCardContainer{
+    width: 369px;
+    height: auto;
+    background: #FFFFFF;
+border: 1px solid rgba(0, 0, 0, 0.3);
+box-shadow: 0px 1px 12px rgba(0, 0, 0, 0.08);
+border-radius: 20px 20px 0px 0px;
+display: flex;
+align-items:center;
+padding: 10px;
+box-sizing: border-box;
+justify-content: space-around;
+}
+.BelowCardContainer{
+    background: linear-gradient(180.25deg, rgba(38, 49, 121, 0.5) -44.64%, rgba(40, 41, 116, 0.01) 120.18%);
+border: 1px solid rgba(0, 0, 0, 0.3);
+box-shadow: 0px 1px 12px rgba(0, 0, 0, 0.08);
+/* border-radius: 20px; */
+width: 369px;
+box-sizing: border-box;
+padding: 10px 10px;
+height: 200px;
+}
+.SchemesTextContainer p{
+    color: var(--blue);
+    font-family: 'OpenSans-SemiBold';
+}
+.DescriptionContainer span{
+    color: var(--blue);
+    font-family: 'OpenSans-Bold';
+    font-weight: bolder;
+    margin: 0 5px 0 0px;
+}
+.DescriptionContainer p{
+    font-family: 'OpenSans-Regular';
+    font-size: 14px;
+   
+}
