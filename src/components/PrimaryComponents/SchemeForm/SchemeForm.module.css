@@ -1,0 +1,240 @@
+.OuterContainer {
+  background-image: linear-gradient(
+    to right,
+    rgb(246, 238, 248),
+    rgb(246, 238, 248),
+    #fff,
+    rgb(238, 259, 248)
+  );
+}
+.InnerContainer {
+  max-width: var(--max-screen-width);
+  margin: 0 auto;
+  position: relative;
+}
+.BackSchemesContainer button {
+  background: none;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  opacity: 0.8;
+  font-family: "OpenSans-SemiBold";
+  display: flex;
+  padding: 40px 0 40px 10px;
+  align-items: center;
+  cursor: pointer;
+}
+.BackSchemesContainer button img {
+  filter: invert(0) brightness(0);
+  transform: rotate(270deg);
+  width: 15px;
+  height: auto;
+  margin: 0 10px 0 0;
+}
+.SecondBoxContainer {
+  background: linear-gradient(
+    180deg,
+    rgba(202, 205, 223, 0.3) 0%,
+    rgba(40, 41, 116, 0) 100%
+  );
+  border: 1.16839px solid rgba(0, 0, 0, 0.4);
+  filter: drop-shadow(0px 1.16839px 14.0207px rgba(0, 0, 0, 0.08));
+  border-radius: 5.84197px;
+  width: 100%;
+  padding: 15px;
+  margin: 30px 0 0 0;
+}
+.UploadImageContainer {
+  color: var(--white);
+  font-family: AvenirNextLTPro-Regular;
+  font-weight: 100;
+  font-size: var(--S-small);
+
+  width: 100%;
+  height: 300px;
+}
+.UploadImageContainer input {
+  display: none;
+}
+.LabelContainer {
+  margin: 0;
+  padding: 0;
+}
+.UploadImageContainer > label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  cursor: pointer;
+}
+.UploadImageContainer .LabelContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.LabelContainer span {
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+  font-family: "OpenSans-SemiBold";
+  color: var(--blue);
+  margin: 10px 0 0 0;
+}
+.LabelContainer img {
+  width: 70%;
+  height: auto;
+  opacity: 0.6;
+}
+.UploadImageContainer1 {
+  color: var(--white);
+  font-family: AvenirNextLTPro-Regular;
+  font-weight: 100;
+  font-size: var(--S-small);
+  width: 100%;
+  height: 200px;
+}
+.UploadImageContainer1 input {
+  display: none;
+}
+.LabelContainer1 {
+  margin: 0;
+  padding: 0;
+}
+.UploadImageContainer1 > label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  cursor: pointer;
+}
+.UploadImageContainer1 .LabelContainer1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.LabelContainer1 span {
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+  font-family: "OpenSans-SemiBold";
+  color: var(--blue);
+  margin: 10px 0 0 0;
+}
+.LabelContainer1 img {
+  width: 70%;
+  height: auto;
+  opacity: 0.6;
+}
+.AdhaarText p,
+.UploadImageText p {
+  font-family: "OpenSans-SemiBold";
+  color: var(--blue);
+}
+.OuterFormContainer {
+  width: 1200px;
+  margin: 0 auto;
+ display: flex;
+  justify-content: space-between;
+}
+
+.FirstForm {
+  width: 60%;
+}
+.SecondForm {
+  width: 30%;
+  background: linear-gradient(
+    180deg,
+    rgba(202, 205, 223, 0.3) 0%,
+    rgba(40, 41, 116, 0) 100%
+  );
+  border: 1.16839px solid rgba(0, 0, 0, 0.4);
+  filter: drop-shadow(0px 1.16839px 14.0207px rgba(0, 0, 0, 0.08));
+  border-radius: 5.84197px;
+  height: 260px;
+  margin: 60px 0 0 0;
+  padding: 15px;
+}
+.FormText p {
+  color: var(--blue);
+  font-size: 22px;
+  font-family: "OpenSans-Bold";
+  margin: 0 0 10px 0;
+}
+.FirstBoxContainer {
+  width: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(202, 205, 223, 0.3) 0%,
+    rgba(40, 41, 116, 0) 100%
+  );
+  border: 1.16839px solid rgba(0, 0, 0, 0.4);
+  filter: drop-shadow(0px 1.16839px 14.0207px rgba(0, 0, 0, 0.08));
+  border-radius: 5.84197px;
+  padding: 25px 15px 25px 15px;
+  text-align: center;
+  margin: 30px 0 0 0;
+}
+.NameContainer,
+.MobileContainer,
+.AddressContainer {
+  width: 80%;
+  margin: 0 auto;
+}
+.NameText p,
+.MobileText p,
+.AddressText p {
+  text-align: left;
+  color: var(--blue);
+  font-family: "OpenSans-SemiBold";
+  margin: 10px 0 10px 0;
+}
+.NameInput,
+.MobileInput,
+.AddressInput {
+  width: 100%;
+}
+.NameInput input,
+.MobileInput input,
+.AddressInput input {
+  width: 100%;
+  background: #ffffff;
+  border: 1.16839px solid rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 1.16839px 14.0207px rgba(0, 0, 0, 0.08);
+  border-radius: 11.6839px;
+  outline: none;
+  padding: 10px 0 10px 10px;
+  box-sizing: border-box;
+}
+.TermsContainer{
+    width: 80%;
+    margin: 30px auto 0 auto;
+    display: flex;
+    align-items: center;
+}
+.CheckBoxContainer input{
+   width: 30px;
+    height: 30px;
+}
+.TermsText p{
+    font-size: 18px;
+    font-family: 'OpenSans-Regular';
+    color: #000000;
+    opacity: 0.6;
+    margin: 0 0 0 10px
+}
+.ButtonContainer {
+    margin: 40px auto 0px auto;
+    width: 15%;
+    padding-bottom: 40px;
+  }
+  .ButtonContainer button {
+    width: 100%;
+    background: linear-gradient(96.72deg, #282974 44.73%, #1b5993 114.86%);
+    box-shadow: 0px 2.75676px 2.75676px rgba(0, 0, 0, 0.25);
+    border-radius: 6.89189px;
+    color: var(--white);
+    padding: 10px 0;
+    font-size: 18px;
+    font-family: "OpenSans-Bold";
+    cursor: pointer;
+  }

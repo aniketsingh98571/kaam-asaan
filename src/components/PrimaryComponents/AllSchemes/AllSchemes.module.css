@@ -1,3 +1,6 @@
+.OuterContainer{
+    background-image: linear-gradient(to right, rgb(246,238,248),rgb(246,238,248), #fff,rgb(238,259,248));
+}
 .InnerContainer{
     max-width: var(--max-screen-width);
     margin: 0 auto;
@@ -54,6 +57,7 @@ padding:  0 0 0 15px;
     background-color: var(--white);
     justify-content: space-around;
     padding: 10px 0;
+    cursor: pointer;
 }
 .FilterText{
     width: 40%;
@@ -92,20 +96,81 @@ box-shadow: 0px 1px 12px rgba(0, 0, 0, 0.08);
 width: 369px;
 box-sizing: border-box;
 padding: 10px 10px;
-height: 200px;
+height: 300px;
+border-bottom-left-radius: 20px;
+border-bottom-right-radius: 20px;
 }
 .SchemesTextContainer p{
     color: var(--blue);
     font-family: 'OpenSans-SemiBold';
 }
-.DescriptionContainer span{
+.DescriptionContainer,.DescriptionBodyContainer{
+    margin: 10px 0 0 0;
+}
+.DescriptionContainer span:nth-child(1){
     color: var(--blue);
     font-family: 'OpenSans-Bold';
     font-weight: bolder;
     margin: 0 5px 0 0px;
+
 }
-.DescriptionContainer p{
+.BodyContainer,.PriceContainer{
+    margin: 10px 0 0 0;
+}
+.BodyContainer p span,.PriceContainer p span{
+    margin: 0px 72px 0 0;
+    color: var(--blue);
+    font-family: 'OpenSans-Bold';
+    font-weight: bolder;
+  
+}
+.BodyContainer p,.PriceContainer p{
     font-family: 'OpenSans-Regular';
     font-size: 14px;
-   
+}
+.DescriptionContainer span:nth-child(2){
+    font-family: 'OpenSans-Regular';
+    font-size: 14px;
+}
+.BelowMajorCardContainer{
+    display: flex;
+  }
+.FirstContainer{
+    width: 35%;
+}
+.SecondContainer{
+    width: 60%;
+}
+.ButtonContainer{
+   margin: 40px auto 0 auto;
+    width: 40%;
+}
+.ButtonContainer button{
+    width: 100%;
+    background: linear-gradient(96.72deg, #282974 44.73%, #1B5993 114.86%);
+box-shadow: 0px 2.75676px 2.75676px rgba(0, 0, 0, 0.25);
+border-radius: 6.89189px;
+color: var(--white);
+padding: 8px 0;
+font-size: 18px;
+font-family: 'OpenSans-Bold';
+cursor: pointer;
+}
+.PopularSchemesCardContainer{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0 10px 0;
+}
+.PopularSchemesText p,.RuralSchemesText p{
+    font-family: 'OpenSans-Bold';
+    color: var(--blue);
+    font-size: 20px;
+    margin: 0 0 30px 10px;
+}
+.AllSchemesContainer{
+    margin: 40px 0 0 0;
+}
+.RuralSchemesContainer{
+    margin: 40px 0 0px 0;
+    padding: 0 0 40px 0;
 }

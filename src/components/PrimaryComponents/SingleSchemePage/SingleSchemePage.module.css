@@ -1,0 +1,111 @@
+.OuterContainer {
+  background-image: linear-gradient(
+    to right,
+    rgb(246, 238, 248),
+    rgb(246, 238, 248),
+    #fff,
+    rgb(238, 259, 248)
+  );
+}
+.InnerContainer {
+  max-width: var(--max-screen-width);
+  margin: 0 auto;
+  position: relative;
+}
+.BackSchemesContainer button {
+  background: none;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  opacity: 0.8;
+  font-family: "OpenSans-SemiBold";
+  display: flex;
+  padding: 40px 0 40px 10px;
+  align-items: center;
+  cursor: pointer;
+}
+.BackSchemesContainer button img {
+  filter: invert(0) brightness(0);
+  transform: rotate(270deg);
+  width: 15px;
+  height: auto;
+  margin: 0 10px 0 0;
+}
+.SchemeLogoContainer {
+  width: 10%;
+}
+.SchemeLogoContainer img {
+  width: 100%;
+  height: auto;
+}
+.InfoContainer {
+  width: 90%;
+}
+.SchemeNameContainer p {
+  color: var(--blue);
+  font-size: 22px;
+  font-family: "OpenSans-Bold";
+  margin: 0 0 10px 0;
+}
+.BodyNameContainer p {
+  color: var(--black);
+  font-family: "OpenSans-SemiBold";
+  margin: 0 0 20px 0;
+}
+.DescriptionFlexContainer,
+.PriceFlexContainer,
+.BodyFlexContainer,
+.BenefitsFlexContainer {
+  display: flex;
+  margin: 30px 0 0 0;
+}
+.DescriptionText,
+.PriceText,
+.BenefitsText {
+  width: 10%;
+}
+.DescriptionText p,
+.PriceText p,
+.BenefitsText p {
+  color: var(--blue);
+  font-family: "OpenSans-SemiBold";
+  font-size: 17px;
+}
+.DescriptionBody,
+.PriceBody,
+.BenefitsBody {
+  width: 80%;
+}
+.DescriptionBody p,
+.PriceBody p,
+.BenefitsBody p {
+  font-family: "OpenSans-SemiBold";
+  color: rgb(0, 0, 0, 0.6);
+}
+.MoreDetailsContainer p {
+  color: var(--black);
+  font-family: "OpenSans-Regular";
+  margin: 30px 0 0 0;
+}
+.MoreDetailsContainer p a {
+  color: #26b3e0;
+}
+.ButtonContainer {
+  margin: 40px auto 40px auto;
+  width: 15%;
+}
+.ButtonContainer button {
+  width: 100%;
+  background: linear-gradient(96.72deg, #282974 44.73%, #1b5993 114.86%);
+  box-shadow: 0px 2.75676px 2.75676px rgba(0, 0, 0, 0.25);
+  border-radius: 6.89189px;
+  color: var(--white);
+  padding: 10px 0;
+  font-size: 18px;
+  font-family: "OpenSans-Bold";
+  cursor: pointer;
+}
+.SingleScheme {
+  display: flex;
+  gap: 30px;
+}

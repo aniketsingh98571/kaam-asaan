@@ -34,9 +34,18 @@
 }
 .ListContainer li{
     list-style: none;
+}
+.Inactive,.Link{
+    list-style: none;
     font-family: 'OpenSans-SemiBold';
     color: rgb(0,0,0,0.6);
     font-size: 17px;
+    cursor: pointer;
+    text-decoration: none;
+}
+.Active{
+    color: var(--blue);
+    font-family: 'OpenSans-Bold';
 }
 .ConnectMetamask{
     width: 20%;
@@ -54,5 +63,6 @@
     font-size: 16px;
     background: linear-gradient(97.88deg, rgba(40, 41, 116, 0.1) 43.92%, rgba(27, 88, 147, 0.1) 112.93%);
 box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+cursor: pointer;
 
 }
