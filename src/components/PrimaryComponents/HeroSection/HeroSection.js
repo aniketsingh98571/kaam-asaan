@@ -6,6 +6,7 @@ import bitcoin from '../../../assets/images/bitcoin.png'
 import ethereum from '../../../assets/images/ethereum.png'
 import dodgecoin from '../../../assets/images/dodgecoin.png'
 import Process from "../ProcessSection/Process"
+import { Link } from "react-router-dom"
 export default function HeroSection(){
     return(
        <div className={classes.OuterContainer}>
@@ -17,10 +18,10 @@ export default function HeroSection(){
                         <p>Subheadline goes here</p>
                     </div>
                     <div className={classes.StartButtonContainer}>
-                        <button type="button">
+                      <Link to="/AllSchemes">  <button type="button">
                             Get Started
                             <img src={arrow} alt="arrow"/>
-                        </button>
+                        </button></Link>
                     </div>
                 </div>
                 <div className={classes.RightImageContainer}>

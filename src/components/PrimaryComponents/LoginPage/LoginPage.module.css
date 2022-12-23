@@ -1,0 +1,91 @@
+
+  .InnerContainer {
+    max-width: var(--max-screen-width);
+    margin: 0 auto;
+    position: relative;
+  }
+  .MainLoginSection{
+    display: flex;
+    align-items: center;
+    padding: 20px;
+   }
+  .LeftImage{
+    width: 50%;
+    position: relative;
+  }
+  .LeftImageContainer{
+    position: relative;
+  }
+ .Ethereum{
+    position: absolute;
+    top: 100px;
+    right: 150px;
+ }
+ .DodgeCoin{
+    position: absolute;
+    right: 150px;
+    top: 380px;
+ }
+ .Logo{
+    width: 85px;
+    position: absolute;
+    top: 260px;
+    left: 215px;
+ }
+ .Logo img{
+    width: 100%;
+    height: auto;
+ }
+ .WelcomeText p{
+    color: var(--blue);
+    font-family: 'OpenSans-Bold';
+    font-size: 50px;
+    margin: 20px 0 0 0;
+ }
+ .ShortInfoContainer p{
+    color: rgba(0,0,0,0.6);
+    font-family: 'OpenSans-SemiBold';
+    font-size: 18px;
+    margin: 10px 0 20px 0;
+ }
+ .FormContainer{
+    padding: 30px;
+    width: 500px;
+   background: linear-gradient(180deg, rgba(202, 205, 223, 0.3) 0%, rgba(40, 41, 116, 0) 100%);
+   border: 0.938831px solid rgba(0, 0, 0, 0.4);
+filter: drop-shadow(0px 0.938831px 11.266px rgba(0, 0, 0, 0.08));
+border-radius: 4.69416px;
+ }
+ .UserIdContainer p,.PasswordContainer p{
+    color: var(--blue);
+    font-family:'OpenSans-SemiBold';
+    margin: 15px 0 15px 0;
+ }
+ .UserIdContainer,.PasswordContainer{
+    width: 80%;
+ }
+ .UserIdContainer input,.PasswordContainer input{
+    width: 100%;
+    background: #FFFFFF;
+border: 0.938831px solid rgba(0, 0, 0, 0.4);
+box-shadow: 0px 0.938831px 11.266px rgba(0, 0, 0, 0.08);
+border-radius: 9.38831px;
+padding: 10px 0 10px 10px;
+outline: none;
+ }
+ .ButtonContainer{
+    width: 35%;
+    text-align: center;
+    margin: 20px  auto 0 auto;
+ }
+ .ButtonContainer button{
+    width: 100%;
+    background: linear-gradient(96.72deg, #282974 44.73%, #1b5993 114.86%);
+    box-shadow: 0px 2.75676px 2.75676px rgba(0, 0, 0, 0.25);
+    border-radius: 6.89189px;
+    color: var(--white);
+    padding: 10px 0;
+    font-size: 18px;
+    font-family: "OpenSans-Bold";
+    cursor: pointer;
+ }

@@ -1,0 +1,28 @@
+.OuterContainer{
+    background-image: linear-gradient(to right, rgb(246,238,248),rgb(246,238,248), #fff,rgb(238,259,248));
+}
+.InnerContainer{
+    max-width: var(--max-screen-width);
+    margin: 0 auto;
+   position: relative;
+}
+.IntroSection{
+    width: 80%;
+    padding: 40px 0 20px 10px;
+}
+.SingleIntro{
+    margin: 0 0 20px 0;
+    width: 100%;
+}
+.QuestionContainer p{
+    color: var(--blue);
+    font-family: 'OpenSans-Bold';
+    font-size: 22px;
+    margin: 0 0 10px 0;
+}
+.AnswerContainer p{
+    font-family: 'OpenSans-Regular';
+    font-size: 18px;
+    color: rgba(0, 0, 0,0.6);
+    letter-spacing: 1px;
+}

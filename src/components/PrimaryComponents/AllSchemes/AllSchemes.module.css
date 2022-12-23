@@ -76,18 +76,20 @@ padding:  0 0 0 15px;
     height: auto;
 }
 .UpperCardContainer{
-    width: 369px;
-    height: auto;
-    background: #FFFFFF;
+ 
+display: flex;
+align-items:center;
+width: 369px;
+height: auto;
+background: #FFFFFF;
 border: 1px solid rgba(0, 0, 0, 0.3);
 box-shadow: 0px 1px 12px rgba(0, 0, 0, 0.08);
 border-radius: 20px 20px 0px 0px;
-display: flex;
-align-items:center;
 padding: 10px;
 box-sizing: border-box;
 justify-content: space-around;
 }
+
 .BelowCardContainer{
     background: linear-gradient(180.25deg, rgba(38, 49, 121, 0.5) -44.64%, rgba(40, 41, 116, 0.01) 120.18%);
 border: 1px solid rgba(0, 0, 0, 0.3);

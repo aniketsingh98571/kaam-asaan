@@ -13,7 +13,8 @@ export default function AllSchemes() {
             SchemeName:"Prime Minister Employment Generation Programme",
             schemeDescription:" The scheme is implemented by Khadi and Village Industries Commission (KVIC) functioning as the nodal agency at the national level. At the state level, the scheme is implemented through State KVIC Directorates, State Khad and Village Industries Boards (KVIBs), District Industries Centres (DICs) and banks. In such cases KVIC routes government subsidy through designated banks for eventual disbursal  to the beneficiaries / entrepreneurs directly into their bank accounts.",
             schemeBenefits:"The Prime Minister Employment Generation Programme (PMEGP) is a Government of India-backed credit-linked subsidy scheme. Under this scheme, beneficiaries can get a subsidy amounting to 15-35% of the project cost from the government.",
-            schemePrice:0.01
+            schemePrice:0.01,
+            schemeBody:"Human Development"
         },
         {
             id:"P02",
@@ -21,7 +22,8 @@ export default function AllSchemes() {
             SchemeName:"Prime Minister Employment Generation Programme",
             schemeDescription:" The scheme is implemented by Khadi and Village Industries Commission (KVIC) functioning as the nodal agency at the national level. At the state level, the scheme is implemented through State KVIC Directorates, State Khad and Village Industries Boards (KVIBs), District Industries Centres (DICs) and banks. In such cases KVIC routes government subsidy through designated banks for eventual disbursal  to the beneficiaries / entrepreneurs directly into their bank accounts.",
             schemeBenefits:"The Prime Minister Employment Generation Programme (PMEGP) is a Government of India-backed credit-linked subsidy scheme. Under this scheme, beneficiaries can get a subsidy amounting to 15-35% of the project cost from the government.",
-            schemePrice:0.01
+            schemePrice:0.01,
+            schemeBody:"Human Development"
         },
         {
             id:"P03",
@@ -29,7 +31,8 @@ export default function AllSchemes() {
             SchemeName:"Prime Minister Employment Generation Programme",
             schemeDescription:" The scheme is implemented by Khadi and Village Industries Commission (KVIC) functioning as the nodal agency at the national level. At the state level, the scheme is implemented through State KVIC Directorates, State Khad and Village Industries Boards (KVIBs), District Industries Centres (DICs) and banks. In such cases KVIC routes government subsidy through designated banks for eventual disbursal  to the beneficiaries / entrepreneurs directly into their bank accounts.",
             schemeBenefits:"The Prime Minister Employment Generation Programme (PMEGP) is a Government of India-backed credit-linked subsidy scheme. Under this scheme, beneficiaries can get a subsidy amounting to 15-35% of the project cost from the government.",
-            schemePrice:0.01
+            schemePrice:0.01,
+            schemeBody:"Human Development"
         }
     
     ],
@@ -40,7 +43,9 @@ export default function AllSchemes() {
             SchemeName:"Prime Minister Employment Generation Programme",
             schemeDescription:" The scheme is implemented by Khadi and Village Industries Commission (KVIC) functioning as the nodal agency at the national level. At the state level, the scheme is implemented through State KVIC Directorates, State Khad and Village Industries Boards (KVIBs), District Industries Centres (DICs) and banks. In such cases KVIC routes government subsidy through designated banks for eventual disbursal  to the beneficiaries / entrepreneurs directly into their bank accounts.",
             schemeBenefits:"The Prime Minister Employment Generation Programme (PMEGP) is a Government of India-backed credit-linked subsidy scheme. Under this scheme, beneficiaries can get a subsidy amounting to 15-35% of the project cost from the government.",
-            schemePrice:0.01
+            schemePrice:0.01,
+            schemeBody:"Human Development"
+
         },
         {
             id:"R02",
@@ -48,7 +53,8 @@ export default function AllSchemes() {
             SchemeName:"Prime Minister Employment Generation Programme",
             schemeDescription:" The scheme is implemented by Khadi and Village Industries Commission (KVIC) functioning as the nodal agency at the national level. At the state level, the scheme is implemented through State KVIC Directorates, State Khad and Village Industries Boards (KVIBs), District Industries Centres (DICs) and banks. In such cases KVIC routes government subsidy through designated banks for eventual disbursal  to the beneficiaries / entrepreneurs directly into their bank accounts.",
             schemeBenefits:"The Prime Minister Employment Generation Programme (PMEGP) is a Government of India-backed credit-linked subsidy scheme. Under this scheme, beneficiaries can get a subsidy amounting to 15-35% of the project cost from the government.",
-            schemePrice:0.01
+            schemePrice:0.01,
+            schemeBody:"Human Development"
         },
         {
             id:"R03",
@@ -56,7 +62,8 @@ export default function AllSchemes() {
             SchemeName:"Prime Minister Employment Generation Programme",
             schemeDescription:" The scheme is implemented by Khadi and Village Industries Commission (KVIC) functioning as the nodal agency at the national level. At the state level, the scheme is implemented through State KVIC Directorates, State Khad and Village Industries Boards (KVIBs), District Industries Centres (DICs) and banks. In such cases KVIC routes government subsidy through designated banks for eventual disbursal  to the beneficiaries / entrepreneurs directly into their bank accounts.",
             schemeBenefits:"The Prime Minister Employment Generation Programme (PMEGP) is a Government of India-backed credit-linked subsidy scheme. Under this scheme, beneficiaries can get a subsidy amounting to 15-35% of the project cost from the government.",
-            schemePrice:0.01
+            schemePrice:0.01,
+            schemeBody:"Human Development"
         }
     ]
     }
@@ -92,7 +99,7 @@ export default function AllSchemes() {
                     AllSchemes.Popular.map((schemes)=>{
                         return (
                             <div className={classes.SingleCardContainer} key={schemes.id}>
-                            <div className={classes.UpperCardContainer}>
+                            <div className={[classes.UpperCardContainer,classes.SecondUpperCard].join("")}>
                               <div className={classes.SchemesLogoContainer}>
                                 <img src={schemes.schemeImage} alt="logo" />
                               </div>
@@ -120,7 +127,7 @@ export default function AllSchemes() {
                               <div className={classes.BodyContainer}>
                                 <p>
                                   <span>Body : </span>
-                                  {schemes.schemePrice}
+                                  {schemes.schemeBody}
                                 </p>
                               </div>
                               <div className={classes.PriceContainer}>

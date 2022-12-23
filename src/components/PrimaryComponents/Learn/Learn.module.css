@@ -1,0 +1,23 @@
+.OuterContainer {
+    background-image: linear-gradient(
+      to right,
+      rgb(246, 238, 248),
+      rgb(246, 238, 248),
+      #fff,
+      rgb(238, 259, 248)
+    );
+  }
+  .InnerContainer {
+    max-width: var(--max-screen-width);
+    margin: 0 auto;
+    position: relative;
+  }
+  .YoutubeContainer{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 30px 0 0 0;
+  }
+  .SingleVideo{
+    margin: 0 0 20px 0;
+  }
