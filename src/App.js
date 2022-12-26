@@ -9,6 +9,7 @@ import UserProfilePage from './components/PrimaryComponents/UserProfilePage/User
 import LoginPage from './components/PrimaryComponents/LoginPage/LoginPage';
 import Learn from './components/PrimaryComponents/Learn/Learn';
 import AboutUs from './components/PrimaryComponents/AboutUs/AboutUs';
+import GovernmentProfile from './components/PrimaryComponents/GovernmentProfile/GovernmentProfile';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
    <Route exact path="/login" element={<LoginPage/>}/>
    <Route exact path="/learn" element={<Learn/>}/>
    <Route exact path="/about" element={<AboutUs/>}/>
+   <Route exact path="/admin" element={<GovernmentProfile/>}/>
    </Routes>
    <Footer/>
    </BrowserRouter>

@@ -2,10 +2,16 @@ import React,{useState} from "react"
 import classes from './Header.module.css'
 import logo from '../../../assets/images/logo.png'
 import { Link } from "react-router-dom"
+import UserName from "../../PopUps/UserName/UserName"
 export  default function Header(){
     const [active,setActive]=useState("Home")
+    const [showUsername,setShowUsername]=useState(false)
     return (
         <div className={classes.OuterContainer}>
+            {
+                showUsername?
+            <UserName/>:null
+            }
             <div className={classes.InnerContainer}>
                 <div className={classes.FlexContainer}>
                     <div className={classes.LeftContainer}>

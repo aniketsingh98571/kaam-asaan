@@ -1,0 +1,55 @@
+.InnerContainer{
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 99999999999;
+    backdrop-filter: blur(5px);
+    top: 0;
+    }
+.MainContainer{
+    border: 2px solid var(--black);
+    opacity: 1;
+    width: 50%;
+    /* position: absolute; */
+  margin: 150px auto 0 auto;
+  background-color: var(--white);
+ padding: 25px;
+}
+.UsernameText p{
+    font-family: 'OpenSans-Bold';
+    font-size: 22px;
+    text-align: center;
+    color: var(--blue);
+}
+.UsernameContainer{
+    width: 60%;
+    margin: 20px 0 0 0;
+}
+.UsernameContainer p{
+    font-family: 'OpenSans-SemiBold';
+    color: var(--blue);
+    margin: 0 0 10px 0;
+}
+.UsernameContainer input{
+    width: 80%;
+    outline: none;
+    padding: 8px 0 8px 10px;
+    border-radius: 10px;
+    border: 2px solid var(--black);
+}
+.ButtonContainer{
+    width: 100%;
+    text-align: center;
+    margin: 30px 0 0 0;
+}
+.ButtonContainer button{
+    width: 25%;
+    background: linear-gradient(96.72deg, #282974 44.73%, #1B5993 114.86%);
+    box-shadow: 0px 2.75676px 2.75676px rgba(0, 0, 0, 0.25);
+    border-radius: 6.89189px;
+    color: var(--white);
+    padding: 8px 0;
+    font-size: 16px;
+    font-family: 'OpenSans-Bold';
+    cursor: pointer;
+}

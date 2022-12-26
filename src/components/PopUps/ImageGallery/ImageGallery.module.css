@@ -1,0 +1,33 @@
+.InnerContainer{
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 99999999999;
+    backdrop-filter: blur(5px);
+    top: 0;
+    }
+.MainContainer{
+    border: 2px solid var(--black);
+    opacity: 1;
+    width: 50%;
+    /* position: absolute; */
+  margin: 150px auto 0 auto;
+  background-color: var(--white);
+ padding: 25px;
+}
+.UpperContainer{
+    width: 100%;
+    text-align: right;
+}
+.UpperContainer img{
+    width: 20px;
+    height: auto;
+    cursor: pointer;
+}
+.ImageContainer{
+    width: 80%;
+}
+.ImageContainer img{
+    width: 100%;
+    height: auto;
+}

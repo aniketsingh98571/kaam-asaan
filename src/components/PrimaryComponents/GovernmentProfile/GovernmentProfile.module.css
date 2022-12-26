@@ -1,0 +1,105 @@
+.OuterContainer{
+    background-image: linear-gradient(to right, rgb(246,238,248),rgb(246,238,248), #fff,rgb(238,259,248));
+}
+.InnerContainer{
+    max-width: var(--max-screen-width);
+    margin: 0 auto;
+   position: relative;
+}
+.UpperCardContainer{
+    display: flex;
+    align-items:center;
+    width: 369px;
+ background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 1px 12px rgba(0, 0, 0, 0.08);
+    border-radius: 20px 20px 0px 0px;
+    padding: 10px;
+    box-sizing: border-box;
+    justify-content: space-around;
+}
+.SchemeName p{
+    font-family: 'OpenSans-SemiBold';
+}
+.BelowCardContainer{
+    background: linear-gradient(180.25deg, rgba(38, 49, 121, 0.5) -44.64%, rgba(40, 41, 116, 0.01) 120.18%);
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 1px 12px rgba(0, 0, 0, 0.08);
+    width: 369px;
+    box-sizing: border-box;
+    padding: 10px 10px;
+    height: 300px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+.PersonName,.PersonNumber,.PersonImage,.PanImage{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 0 0 15px 0;
+}
+.PersonAddress{
+    display: flex;
+    gap: 15px;
+    margin: 0 0 15px 0;
+}
+.PersonName span,.PersonAddress span,.PersonNumber span,.PersonImage span,.PanImage span{
+    color: var(--blue);
+    font-family: 'OpenSans-SemiBold';
+}
+.PersonName p,.PersonAddress p,.PersonNumber p{
+   font-family: 'OpenSans-Regular';
+}
+.PersonImage p,.PanImage p{
+    font-family: 'OpenSans-Regular';
+    text-decoration: underline;
+    cursor: pointer;
+}
+.ButtonContainer{
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+.AcceptButton,.RejectButton{
+    width: 40%;
+}
+.AcceptButton button,.RejectButton button{
+    width: 100%;
+    background: linear-gradient(96.72deg, #282974 44.73%, #1B5993 114.86%);
+box-shadow: 0px 2.75676px 2.75676px rgba(0, 0, 0, 0.25);
+border-radius: 6.89189px;
+color: var(--white);
+padding: 8px 0;
+font-size: 16px;
+font-family: 'OpenSans-Bold';
+cursor: pointer;
+}
+.UpperContainer{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding:  30px 0 30px 0;
+}
+.ImageContainer img{
+    width: 150px;
+    height: auto;
+}
+.NameContainer,.GovernmentId,.Department{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.NameContainer p,.GovernmentId p,.Department p{
+    color: var(--blue);
+    font-family: 'OpenSans-SemiBold';
+    font-size: 18px;
+}
+.NameContainer span,.GovernmentId span,.Department span{
+    font-family: 'OpenSans-Regular';
+}
+.CardContainer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 0 30px 0;
+}

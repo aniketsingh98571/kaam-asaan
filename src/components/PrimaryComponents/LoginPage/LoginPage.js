@@ -4,6 +4,7 @@ import government from "../../../assets/images/government.png";
 import ethereum from "../../../assets/images/ethereum.png";
 import dodgecoin from "../../../assets/images/dodgecoin.png";
 import logo from "../../../assets/images/logo.png";
+import { Link} from "react-router-dom";
 export default function LoginPage() {
   return (
     <div className={classes.OuterContainer}>
@@ -44,9 +45,11 @@ export default function LoginPage() {
                   <p>Password</p>
                   <input type="password" />
                 </div>
-                <div className={classes.ButtonContainer}>
+              <Link to="/admin">
+                  <div className={classes.ButtonContainer}>
                   <button type="button">Log in</button>
                 </div>
+              </Link>
               </div>
             </div>
           </div>
