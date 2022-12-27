@@ -1,10 +1,55 @@
-import React from "react";
+import React, { useState } from "react";
 import classes from "./SchemeForm.module.css";
 import upload_adhaar from "../../../assets/images/upload_adhaar.png";
 import upload_image from "../../../assets/images/upload_image.png";
 import arrow from "../../../assets/images/top_arrow.png";
 import { Link } from "react-router-dom";
+import MetmaskConnection from '../../CustomHook/MetaMaskConnection'
+import { pinImage,pinJson } from "../../CustomHook/IPFSFunctions/pinData";
 export default function SchemeForm() {
+  const [applicationData,setApplicationData]=useState({
+    name:null,
+    mobile:null,
+    address:null,
+    adhaar:null,
+    profile:null,
+  })
+const inputHandler=(e)=>{
+  const name=e.target.name;
+  const value=e.target.value;
+  setApplicationData({...applicationData,[name]:value})
+}
+const fileInputHandler=(e)=>{
+  const name=e.target.name;
+  const value=e.target.files[0];
+  console.log(value)
+ const url= URL.createObjectURL(value);
+  document.getElementById(name).src=url
+  setApplicationData({...applicationData,[name]:value})
+}
+const submitHandler=()=>{
+  if(applicationData.name&&applicationData.address&&applicationData.mobile&&applicationData.profile&&applicationData.adhaar){
+    MetmaskConnection("check").then((ethData)=>{
+      const login=sessionStorage.getItem("login")
+      const username=sessionStorage.getItem("username")
+      if(ethData&&login){
+        const pinAdhaar=pinImage(applicationData.adhaar,username,5269)
+        console.log(pinAdhaar)
+      }
+      else{
+        alert("connect metamask first")
+      }
+      
+    }).catch((err)=>{
+      console.log(err)
+      alert("connect metamask first")
+    })
+  }
+  else{
+    alert("Please fill out all the fields")
+  }
+
+}
   return (
     <div className={classes.OuterContainer}>
       <div className={classes.InnerContainer}>
@@ -28,7 +73,7 @@ export default function SchemeForm() {
                     <p>Your Full Name</p>
                   </div>
                   <div className={classes.NameInput}>
-                    <input type="text" />
+                    <input type="text" name="name" onChange={inputHandler}/>
                   </div>
                 </div>
                 <div className={classes.MobileContainer}>
@@ -36,7 +81,7 @@ export default function SchemeForm() {
                     <p>Mobile Number</p>
                   </div>
                   <div className={classes.MobileInput}>
-                    <input type="number" />
+                    <input type="number" name="mobile" onChange={inputHandler} />
                   </div>
                 </div>
                 <div className={classes.AddressContainer}>
@@ -44,7 +89,7 @@ export default function SchemeForm() {
                     <p>Address</p>
                   </div>
                   <div className={classes.AddressInput}>
-                    <input type="text" />
+                    <input type="text" name="address" onChange={inputHandler} />
                   </div>
                 </div>
               </div>
@@ -60,7 +105,7 @@ export default function SchemeForm() {
                           <img
                             src={upload_adhaar}
                             alt="Upload"
-                            id="ArtWorkImageId"
+                            id="adhaar"
                           />
                           <span id="ArtWorkImageTextId">
                             {" "}
@@ -72,7 +117,9 @@ export default function SchemeForm() {
                         className={classes.FileInput}
                         type="file"
                         id="ProfileInputId"
-                        accept=".png,.jpeg,.webp,.glb,.svg,.gif,.mp4"
+                        accept=".png,.jpeg"
+                        name="adhaar"
+                        onChange={fileInputHandler}
                       />
                     </div>
                   </div>
@@ -86,12 +133,12 @@ export default function SchemeForm() {
                 </div>
                 <div className={classes.UploadImageInput1}>
                   <div className={classes.UploadImageContainer1}>
-                    <label htmlFor="ProfileInputId">
+                    <label htmlFor="ProfileInputId1">
                       <div className={classes.LabelContainer1}>
                         <img
                           src={upload_image}
                           alt="Upload"
-                          id="ArtWorkImageId"
+                          id="profile"
                         />
                         <span id="ArtWorkImageTextId"> Browse from device</span>
                       </div>
@@ -99,9 +146,11 @@ export default function SchemeForm() {
                     <input
                       className={classes.FileInput1}
                       type="file"
-                      id="ProfileInputId"
-                      accept=".png,.jpeg,.webp,.glb,.svg,.gif,.mp4"
-                    />
+                      id="ProfileInputId1"
+                      accept=".png,.jpeg"
+                      name="profile"
+                      onChange={fileInputHandler}
+                     />
                   </div>
                 </div>
               </div>
@@ -119,7 +168,7 @@ export default function SchemeForm() {
             </div>
           </div>
           <div className={classes.ButtonContainer}>
-            <button type="button">Submit</button>
+            <button type="button" onClick={submitHandler}>Submit</button>
           </div>
         </div>
       </div>
