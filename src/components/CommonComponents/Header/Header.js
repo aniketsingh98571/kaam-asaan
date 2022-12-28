@@ -26,8 +26,11 @@ export default function Header() {
       await getDocs(collection(db, "users")).then((querySnapshot) => {
         querySnapshot.docs.map((data) => {
           const wallet = data.data();
-          if (wallet.walletId === ethData.account) boolf = true;
+          if (wallet.walletId === ethData.account){ 
+          boolf = true;
           username = wallet.username;
+          console.log(username)
+          }
         });
       });
       console.log(boolf);

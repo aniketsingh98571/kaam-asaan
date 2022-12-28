@@ -1,9 +1,6 @@
 import axios from "axios"
 const pinImage=async(image,username,governmentId)=>{
-    console.log(image)
-    console.log(username)
-    console.log(governmentId)
-    const formData = new FormData();
+   const formData = new FormData();
     formData.append('file', image)
    const metadata = JSON.stringify({
       name:username,
@@ -11,10 +8,7 @@ const pinImage=async(image,username,governmentId)=>{
     formData.append('pinataMetadata', metadata);
     const options = JSON.stringify({
       cidVersion: 0,
-      username:username,
-      governmentId:governmentId
     })
-    console.log(process.env.API_KEY)
     formData.append('pinataOptions', options);
     const res=await axios.post("https://api.pinata.cloud/pinning/pinFileToIPFS", formData, {
         maxBodyLength: "Infinity",
@@ -26,13 +20,13 @@ const pinImage=async(image,username,governmentId)=>{
       });
       return res.data
   }
-const pinJson=async(data)=>{
+const pinJson=async(data,username)=>{
   const mintData = JSON.stringify({
         "pinataOptions": {
           "cidVersion": 1
         },
         "pinataMetadata": {
-          "name": "name12",
+          "name": username+"D",
         },
           "pinataContent":data
         });

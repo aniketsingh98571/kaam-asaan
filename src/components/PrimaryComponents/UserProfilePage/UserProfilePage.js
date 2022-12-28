@@ -1,10 +1,28 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import classes from "./UserProfilePage.module.css";
 import user_profile from "../../../assets/images/profile-user.png";
 import schemes_logo from "../../../assets/images/scheme_logo.png";
 import clipboard from "../../../assets/images/clipboard.png";
 import AllSchemeClass from "../AllSchemes/AllSchemes.module.css";
+import { getData } from "../../CustomHook/IPFSFunctions/getData";
+
 export default function UserProfilePage() {
+  const [schemeData,setSchemeData]=useState([])
+  useEffect(()=>{
+    fetchSchemeData()
+  },[])
+  const fetchSchemeData=async()=>{
+    const username=sessionStorage.getItem("username")
+    const schemeDataBuffer=await getData(username)
+    if(schemeDataBuffer.data.rows){
+     schemeDataBuffer.data.rows.forEach((data)=>{
+       if(!data.date_unpinned){
+         setSchemeData([...schemeData,data])
+       }
+     })
+     console.log(schemeData)
+    }
+  }
   const AllSchemes = [
     {
       id: "P01",

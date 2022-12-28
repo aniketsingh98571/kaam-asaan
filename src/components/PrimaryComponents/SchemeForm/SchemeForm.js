@@ -13,7 +13,9 @@ export default function SchemeForm() {
     address:null,
     adhaar:null,
     profile:null,
+    status:"Under Review"
   })
+  const [submit,setSubmit]=useState(false)
 const inputHandler=(e)=>{
   const name=e.target.name;
   const value=e.target.value;
@@ -25,16 +27,35 @@ const fileInputHandler=(e)=>{
   console.log(value)
  const url= URL.createObjectURL(value);
   document.getElementById(name).src=url
+  document.getElementById(name).style.width="100px"
+  document.getElementById(name).style.height="auto"
   setApplicationData({...applicationData,[name]:value})
 }
 const submitHandler=()=>{
   if(applicationData.name&&applicationData.address&&applicationData.mobile&&applicationData.profile&&applicationData.adhaar){
-    MetmaskConnection("check").then((ethData)=>{
+    if(applicationData.mobile.length>10||applicationData.mobile.length<10){
+      alert("Invalid Mobile Number")
+    }
+    else{
+    MetmaskConnection("check").then(async(ethData)=>{
       const login=sessionStorage.getItem("login")
       const username=sessionStorage.getItem("username")
       if(ethData&&login){
-        const pinAdhaar=pinImage(applicationData.adhaar,username,5269)
-        console.log(pinAdhaar)
+        setSubmit(true)
+        const pinAdhaarHash=await pinImage(applicationData.adhaar,username,5269)
+       if(pinAdhaarHash.IpfsHash){
+          const pinImageHash=await pinImage(applicationData.profile,username,5269)
+          if(pinImageHash.IpfsHash){
+            applicationData["adhaar"]=pinAdhaarHash.IpfsHash
+            applicationData["profile"]=pinImageHash.IpfsHash
+            const pinJsonHash=await pinJson(applicationData,username)
+            console.log(pinJsonHash)
+            if(pinJsonHash.IpfsHash){
+              alert("Application Submitted")
+              setSubmit(false)
+            }
+          }
+        }
       }
       else{
         alert("connect metamask first")
@@ -42,8 +63,9 @@ const submitHandler=()=>{
       
     }).catch((err)=>{
       console.log(err)
-      alert("connect metamask first")
-    })
+      alert("Something went wrong, try again!")
+  })
+}
   }
   else{
     alert("Please fill out all the fields")
@@ -168,7 +190,7 @@ const submitHandler=()=>{
             </div>
           </div>
           <div className={classes.ButtonContainer}>
-            <button type="button" onClick={submitHandler}>Submit</button>
+            <button type="button" onClick={submitHandler}>{submit?"Submiting...": "Submit"}</button>
           </div>
         </div>
       </div>
