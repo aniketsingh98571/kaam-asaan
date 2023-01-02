@@ -6,6 +6,8 @@ import arrow from "../../../assets/images/top_arrow.png";
 import { Link } from "react-router-dom";
 import MetmaskConnection from '../../CustomHook/MetaMaskConnection'
 import { pinImage,pinJson } from "../../CustomHook/IPFSFunctions/pinData";
+import {  collection, addDoc } from "firebase/firestore";
+import { db } from "../../CustomHook/Firebase";
 export default function SchemeForm() {
   const [applicationData,setApplicationData]=useState({
     name:null,
@@ -52,7 +54,25 @@ const submitHandler=()=>{
             console.log(pinJsonHash)
             if(pinJsonHash.IpfsHash){
               alert("Application Submitted")
-              setSubmit(false)
+              const applicationDataJson={
+                username:username,
+                ipfsData:{
+                  aadharHash:pinAdhaarHash.IpfsHash,
+                  imageHash:pinImageHash.IpfsHash,
+                  jsonHash:pinJsonHash.IpfsHash
+                },
+                mainData:{
+                  name:applicationData.name,
+                  mobile:applicationData.mobile,
+                  address:applicationData.address,
+                  status:applicationData.status
+                }
+              }
+              const response = await addDoc(collection(db, "applicationData"), applicationDataJson);
+              if(response.id){
+                setSubmit(false)
+              }
+       
             }
           }
         }

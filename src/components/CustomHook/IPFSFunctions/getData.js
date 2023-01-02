@@ -10,4 +10,11 @@ const getData=async(name)=>{
     });
    return resFile
 }
-export {getData}
+const getContent=async(hash)=>{
+    const resFile = await axios({
+        method: 'get',
+       url: `https://gateway.pinata.cloud/ipfs/${hash}`,
+  });
+    return resFile.data
+}
+export {getData,getContent}
