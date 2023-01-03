@@ -9,24 +9,28 @@ import { db } from "../../CustomHook/Firebase";
 import MetamaskConnection from '../../CustomHook/MetaMaskConnection'
 export default function UserProfilePage() {
   const [schemeData,setSchemeData]=useState([])
-  const [userData,setUserData]=useState()
+  const [userData,setUserData]=useState([])
   useEffect(()=>{
     fetchSchemeData()
   },[])
   const fetchSchemeData=async()=>{
-    MetamaskConnection("check").then((data)=>{
-      setUserData(data)
-    })
+    const res=await MetamaskConnection("check");
+    setUserData(res)
     const username=sessionStorage.getItem("username")
     const docRef = collection(db, "applicationData");
     const docSnap = await getDocs(docRef);
+    let initialArray=[];
     docSnap.forEach((data)=>{
     const doc=data.data()
-    console.log(doc)
-    if(doc.username===username){
-      setSchemeData([...schemeData,doc])
-    }
+    console.log("run")
+  if(doc.username===username){
+      console.log("true")
+      console.log(schemeData)
+       initialArray.push(doc)
+       }
       })
+     console.log(initialArray)
+     setSchemeData(initialArray)
   }
   const AllSchemes = [
     {
@@ -73,6 +77,7 @@ export default function UserProfilePage() {
       {
         userData&&schemeData.length>0?
        <div className={classes.InnerContainer}>
+        {console.log(schemeData)}
         <div className={classes.MainContainer}>
           <div className={classes.ProfileContainer}>
             <div className={classes.ProfileImageContainer}>
@@ -128,7 +133,7 @@ export default function UserProfilePage() {
                           Mr. Singh
                         </p>
                         <div className={classes.ViewOfficersPage}>
-                          <a href="/">View Officer's page</a>
+                          <a href="/admin">View Officer's page</a>
                         </div>
                       </div>
                     </div>

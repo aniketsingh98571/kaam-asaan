@@ -1,12 +1,29 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import classes from './GovernmentProfile.module.css'
 import profile_user from '../../../assets/images/profile-user.png'
 import schemes_logo from '../../../assets/images/scheme_logo.png'
 import ImageGallery from "../../PopUps/ImageGallery/ImageGallery"
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../../CustomHook/Firebase";
 export default function GovernmentProfile(){
     const [showImage,setShowImage]=useState({panCard:false,userImage:false})
+    const [userData,setUserData]=useState([])
     const showImageFunction=()=>{
         setShowImage({...showImage,panCard:true})
+    }
+    useEffect(()=>{
+        fetchData();
+    },[])
+    const fetchData=async()=>{
+        const docRef = collection(db, "applicationData");
+        const docSnap = await getDocs(docRef);
+        let initialArray=[]
+        docSnap.forEach((data)=>{
+        const doc=data.data()
+        console.log(doc)
+        initialArray.push(doc)
+        })
+        setUserData(initialArray)
     }
     const AllSchemes=
         [   
@@ -49,6 +66,7 @@ export default function GovernmentProfile(){
                 showImage.panCard?
             <ImageGallery setShowImage={setShowImage}/>:null
           }
+          
             <div className={classes.InnerContainer}>
                 <div className={classes.MainContainer}>
                     <div className={classes.UpperContainer}>
@@ -70,32 +88,36 @@ export default function GovernmentProfile(){
                             </div>
                         </div>
                     </div>
+                    {
+                             userData.length>0?
+                             
                     <div className={classes.BelowContainer}>
+                        {console.log(userData)}
                         <div className={classes.CardContainer}>
                           {
-                            AllSchemes.map((data)=>{
+                          userData.map((data)=>{
                                 return(
                                     <div className={classes.SingleCard}>
                                     <div className={classes.UpperCardContainer}>
                                         <div className={classes.LogoContainer}>
-                                           <img src={data.schemeImage} alt="logo"/>   
+                                           <img src={schemes_logo} alt="logo"/>   
                                         </div>
                                         <div className={classes.SchemeName}>
-                                            <p>{data.schemeName}</p>    
+                                            <p>Prime Minister Employment Generation Programme</p>    
                                         </div>    
                                     </div>
                                     <div className={classes.BelowCardContainer}>
                                         <div className={classes.PersonName}>
                                             <span>Name:</span>
-                                            <p>{data.personeName}</p>
+                                            <p>{data.mainData.name}</p>
                                         </div>
                                         <div className={[classes.PersonAddress,classes.Address].join("")}>
                                             <span>Address:</span>
-                                            <p>{data.personAddress}</p>
+                                            <p>{data.mainData.address}</p>
                                         </div>
                                         <div className={classes.PersonNumber}>
                                             <span>Number:</span>
-                                            <p>{data.personNumber}</p>
+                                            <p>{data.mainData.mobile}</p>
                                         </div>
                                         <div className={classes.PersonImage}>
                                             <span>Person Image : </span>
@@ -119,7 +141,10 @@ export default function GovernmentProfile(){
                             })
                           }  
                         </div>
+                    </div>:<div className={classes.Loading}>
+                        <p>loading...</p>
                     </div>
+              }
                 </div>
             </div>
         </div>
