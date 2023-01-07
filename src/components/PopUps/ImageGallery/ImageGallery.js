@@ -13,7 +13,7 @@ export default function ImageGallery(props){
                         <img src={cross} alt="cross" onClick={closeImage}/>
                     </div>
                     <div className={classes.ImageContainer}>
-                        <img src="https://5.imimg.com/data5/TP/US/MU/SELLER-51778781/pan-card-500x500.jpg" alt="pan"/>
+                        <img src={`https://ipfs.io/ipfs/${props.hash}`} alt="pan"/>
                     </div>
                 </div>
             </div>

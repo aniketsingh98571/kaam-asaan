@@ -37,6 +37,7 @@ export default function Header() {
       if (boolf) {
         sessionStorage.setItem("login", true);
         sessionStorage.setItem("username", username);
+        window.location.reload()
         setLogin(true);
       } else {
         setShowUsername(true);

@@ -3,13 +3,18 @@ import classes from './GovernmentProfile.module.css'
 import profile_user from '../../../assets/images/profile-user.png'
 import schemes_logo from '../../../assets/images/scheme_logo.png'
 import ImageGallery from "../../PopUps/ImageGallery/ImageGallery"
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs,updateDoc,doc} from "firebase/firestore";
 import { db } from "../../CustomHook/Firebase";
+import { pinJson } from "../../CustomHook/IPFSFunctions/pinData"
+import { unpinData } from "../../CustomHook/IPFSFunctions/unpinData"
 export default function GovernmentProfile(){
-    const [showImage,setShowImage]=useState({panCard:false,userImage:false})
+    const [showImage,setShowImage]=useState({panCard:false,userImage:false,hash:null})
     const [userData,setUserData]=useState([])
-    const showImageFunction=()=>{
-        setShowImage({...showImage,panCard:true})
+    const showImageFunction=(key,hash)=>{
+        if(key==="userImage")
+          setShowImage({...showImage,userImage:true,hash:hash})
+        else if(key==="panCard")
+        setShowImage({...showImage,panCard:true,hash:hash})
     }
     useEffect(()=>{
         fetchData();
@@ -20,51 +25,47 @@ export default function GovernmentProfile(){
         let initialArray=[]
         docSnap.forEach((data)=>{
         const doc=data.data()
-        console.log(doc)
-        initialArray.push(doc)
+        if(doc.mainData.status==="Under Review")
+           initialArray.push(doc)
         })
         setUserData(initialArray)
     }
-    const AllSchemes=
-        [   
-            {
-                id:"P01",
-                schemeImage:schemes_logo,
-                schemeName:"Prime Minister Employment Generation Programme",
-                personeName:"Rahul Rana",
-                personAddress:"Flat no 201, Shree Ram Apartment F Wing Siddhatek Nagar, Kamatwade Nashik Maharashtra.",
-                personNumber:8600852655,
-                personImage:profile_user,
-                personPan:profile_user
-            },
-            {
-                id:"P02",
-                schemeImage:schemes_logo,
-                schemeName:"Prime Minister Employment Generation Programme",
-                personeName:"Rahul Rana",
-                personAddress:"Flat no 201, Shree Ram Apartment F Wing Siddhatek Nagar, Kamatwade Nashik Maharashtra.",
-                personNumber:8600852655,
-                personImage:profile_user,
-                personPan:profile_user
-            },
-            {
-                id:"P03",
-                schemeImage:schemes_logo,
-                schemeName:"Prime Minister Employment Generation Programme",
-                personeName:"Rahul Rana",
-                personAddress:"Flat no 201, Shree Ram Apartment F Wing Siddhatek Nagar, Kamatwade Nashik Maharashtra.",
-                personNumber:8600852655,
-                personImage:profile_user,
-                personPan:profile_user
+   const schemeStatus=(data,status)=>{
+    const docRef = doc(db, "applicationData",data.docId);
+    const data1 = {
+        "mainData.status": status
+      };
+      updateDoc(docRef, data1)
+      .then(async docRef => {
+          console.log("Value of an Existing Document Field has been updated");
+          const newData={
+            ...data.mainData,
+            status:status,
+            aadhaar:data.ipfsData.aadharHash,
+            profile:data.ipfsData.imageHash
+          }
+          const res=await unpinData(data.docId)
+          console.log(res)
+          if(res==="OK"){
+            const res=await pinJson(newData,sessionStorage.getItem("username"))
+            console.log(res)
+            if(res.IpfsHash){
+                alert("Action recorded")
+                window.location.reload()
             }
-        
-        ]
-    
+          }
+        })
+      .catch(error => {
+          console.log(error);
+      })
+}
+
+  
     return(
         <div className={classes.OuterContainer}>
             {
                 showImage.panCard?
-            <ImageGallery setShowImage={setShowImage}/>:null
+            <ImageGallery setShowImage={setShowImage} hash={showImage.hash}/>:showImage.userImage?  <ImageGallery setShowImage={setShowImage} hash={showImage.hash}/>:null
           }
           
             <div className={classes.InnerContainer}>
@@ -121,17 +122,17 @@ export default function GovernmentProfile(){
                                         </div>
                                         <div className={classes.PersonImage}>
                                             <span>Person Image : </span>
-                                            <p onClick={showImageFunction}>View Image</p>
+                                            <p onClick={()=>showImageFunction("userImage",data.ipfsData.imageHash)}>View Image</p>
                                         </div>
                                         <div className={classes.PanImage}>
                                             <span>Pan Image : </span>
-                                            <p onClick={showImageFunction}>View Image</p>
+                                            <p onClick={()=>showImageFunction("panCard",data.ipfsData.aadharHash)}>View Image</p>
                                         </div>
                                         <div className={classes.ButtonContainer}>
-                                            <div className={classes.AcceptButton}>
+                                            <div className={classes.AcceptButton} onClick={()=>schemeStatus(data,"Accepted")}>
                                                 <button type="button">Accept</button>
                                             </div>
-                                            <div className={classes.RejectButton}>
+                                            <div className={classes.RejectButton} onClick={()=>schemeStatus(data,"Rejected")}>
                                                 <button type="button">Reject</button>
                                             </div>
                                         </div>
@@ -141,8 +142,10 @@ export default function GovernmentProfile(){
                             })
                           }  
                         </div>
+                    </div>:userData.length===0?<div>
+                        <p style={{fontSize:"48px",padding:"10px 0 20px 0", fontWeight:"bolder", fontFamily:'OpenSans-Regular'}}>No Data</p>
                     </div>:<div className={classes.Loading}>
-                        <p>loading...</p>
+                        <p style={{fontSize:"48px",padding:"10px 0 20px 0", fontWeight:"bolder", fontFamily:'OpenSans-Regular'}} >loading...</p>
                     </div>
               }
                 </div>

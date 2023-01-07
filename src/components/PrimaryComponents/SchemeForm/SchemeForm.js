@@ -6,8 +6,10 @@ import arrow from "../../../assets/images/top_arrow.png";
 import { Link } from "react-router-dom";
 import MetmaskConnection from '../../CustomHook/MetaMaskConnection'
 import { pinImage,pinJson } from "../../CustomHook/IPFSFunctions/pinData";
-import {  collection, addDoc } from "firebase/firestore";
+import {  setDoc,doc } from "firebase/firestore";
 import { db } from "../../CustomHook/Firebase";
+import donation from '../../../abi/donation.json'
+import Web3 from "web3";
 export default function SchemeForm() {
   const [applicationData,setApplicationData]=useState({
     name:null,
@@ -43,19 +45,26 @@ const submitHandler=()=>{
       const login=sessionStorage.getItem("login")
       const username=sessionStorage.getItem("username")
       if(ethData&&login){
-        setSubmit(true)
-        const pinAdhaarHash=await pinImage(applicationData.adhaar,username,5269)
-       if(pinAdhaarHash.IpfsHash){
-          const pinImageHash=await pinImage(applicationData.profile,username,5269)
+           setSubmit(true)
+           const web3 = new Web3(window.ethereum);
+           const test_address = "0xac4908Bd675CDA3F44d913b1C1D084fc68db547e"
+           var contract = new web3.eth.Contract(donation, test_address)
+          const donate = await contract.methods.donate().send({from: ethData.account, value:"100000000000000000"})
+           console.log(donate)
+          if(donate.transactionHash){
+              const pinAdhaarHash=await pinImage(applicationData.adhaar,username,5269)
+          if(pinAdhaarHash.IpfsHash){
+              const pinImageHash=await pinImage(applicationData.profile,username,5269)
           if(pinImageHash.IpfsHash){
-            applicationData["adhaar"]=pinAdhaarHash.IpfsHash
-            applicationData["profile"]=pinImageHash.IpfsHash
-            const pinJsonHash=await pinJson(applicationData,username)
-            console.log(pinJsonHash)
+              applicationData["adhaar"]=pinAdhaarHash.IpfsHash
+              applicationData["profile"]=pinImageHash.IpfsHash
+              const pinJsonHash=await pinJson(applicationData,username)
+              console.log(pinJsonHash)
             if(pinJsonHash.IpfsHash){
-              alert("Application Submitted")
-              const applicationDataJson={
+               alert("Application Submitted")
+               const applicationDataJson={
                 username:username,
+                docId:pinJsonHash.IpfsHash,
                 ipfsData:{
                   aadharHash:pinAdhaarHash.IpfsHash,
                   imageHash:pinImageHash.IpfsHash,
@@ -68,13 +77,13 @@ const submitHandler=()=>{
                   status:applicationData.status
                 }
               }
-              const response = await addDoc(collection(db, "applicationData"), applicationDataJson);
-              if(response.id){
-                setSubmit(false)
-              }
-       
+          const res= await setDoc(doc(db, "applicationData",pinJsonHash.IpfsHash ), applicationDataJson);
+            console.log(res)
+            setSubmit(false)
+            window.location.reload()
             }
           }
+        }
         }
       }
       else{
@@ -159,7 +168,7 @@ const submitHandler=()=>{
                         className={classes.FileInput}
                         type="file"
                         id="ProfileInputId"
-                        accept=".png,.jpeg"
+                        accept=".png,.jpeg,.jpg"
                         name="adhaar"
                         onChange={fileInputHandler}
                       />
@@ -189,7 +198,7 @@ const submitHandler=()=>{
                       className={classes.FileInput1}
                       type="file"
                       id="ProfileInputId1"
-                      accept=".png,.jpeg"
+                      accept=".png,.jpeg,.jpg"
                       name="profile"
                       onChange={fileInputHandler}
                      />
@@ -198,18 +207,7 @@ const submitHandler=()=>{
               </div>
             </div>
           </div>
-          <div className={classes.TermsContainer}>
-            <div className={classes.CheckBoxContainer}>
-              <input type="checkbox" />
-            </div>
-            <div className={classes.TermsText}>
-              <p>
-                I agree to the <a href="/">terms and conditions</a> as set out
-                by user agreement
-              </p>
-            </div>
-          </div>
-          <div className={classes.ButtonContainer}>
+        <div className={classes.ButtonContainer}>
             <button type="button" onClick={submitHandler}>{submit?"Submiting...": "Submit"}</button>
           </div>
         </div>

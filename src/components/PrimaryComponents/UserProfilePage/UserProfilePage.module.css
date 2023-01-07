@@ -39,7 +39,8 @@
 }
 .SchemesContainer {
   display: flex;
-  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
   margin: 0 0 10px 0;
 }
 .ProfileContainer{

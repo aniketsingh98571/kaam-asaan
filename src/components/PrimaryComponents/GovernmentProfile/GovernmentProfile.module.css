@@ -28,7 +28,7 @@
     width: 369px;
     box-sizing: border-box;
     padding: 10px 10px;
-    height: 300px;
+    height: 320px;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
 }
@@ -40,15 +40,24 @@
 }
 .PersonAddress{
     display: flex;
-    gap: 15px;
+    gap: 10px;
     margin: 0 0 15px 0;
 }
-.PersonName span,.PersonAddress span,.PersonNumber span,.PersonImage span,.PanImage span{
+.PersonName span,.PersonNumber span,.PersonAddress span,.PersonImage span,.PanImage span{
     color: var(--blue);
     font-family: 'OpenSans-SemiBold';
+    
+
 }
-.PersonName p,.PersonAddress p,.PersonNumber p{
+
+.PersonName p,.PersonNumber p{
    font-family: 'OpenSans-Regular';
+   width: 100%;
+}
+.PersonAddress p{
+    font-family: 'OpenSans-Regular';
+    width: 100%;
+    word-break: break-all;
 }
 .PersonImage p,.PanImage p{
     font-family: 'OpenSans-Regular';
@@ -100,6 +109,7 @@ cursor: pointer;
 .CardContainer{
     display: flex;
     align-items: center;
-    justify-content: space-between;
+   gap: 15px;
     padding: 0 0 30px 0;
+    flex-wrap: wrap;
 }

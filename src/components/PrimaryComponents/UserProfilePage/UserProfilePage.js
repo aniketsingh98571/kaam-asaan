@@ -32,50 +32,25 @@ export default function UserProfilePage() {
      console.log(initialArray)
      setSchemeData(initialArray)
   }
-  const AllSchemes = [
-    {
-      id: "P01",
-      schemeImage: schemes_logo,
-      SchemeName: "Prime Minister Employment Generation Programme",
-      schemeDescription:
-        " The scheme is implemented by Khadi and Village Industries Commission (KVIC) functioning as the nodal agency at the national level. At the state level, the scheme is implemented through State KVIC Directorates, State Khad and Village Industries Boards (KVIBs), District Industries Centres (DICs) and banks. In such cases KVIC routes government subsidy through designated banks for eventual disbursal  to the beneficiaries / entrepreneurs directly into their bank accounts.",
-      schemeBenefits:
-        "The Prime Minister Employment Generation Programme (PMEGP) is a Government of India-backed credit-linked subsidy scheme. Under this scheme, beneficiaries can get a subsidy amounting to 15-35% of the project cost from the government.",
-      schemePrice: 0.01,
-      status: "Under Review",
-      officer: "Mr. Singh",
-    },
-    {
-      id: "P02",
-      schemeImage: schemes_logo,
-      SchemeName: "Prime Minister Employment Generation Programme",
-      schemeDescription:
-        " The scheme is implemented by Khadi and Village Industries Commission (KVIC) functioning as the nodal agency at the national level. At the state level, the scheme is implemented through State KVIC Directorates, State Khad and Village Industries Boards (KVIBs), District Industries Centres (DICs) and banks. In such cases KVIC routes government subsidy through designated banks for eventual disbursal  to the beneficiaries / entrepreneurs directly into their bank accounts.",
-      schemeBenefits:
-        "The Prime Minister Employment Generation Programme (PMEGP) is a Government of India-backed credit-linked subsidy scheme. Under this scheme, beneficiaries can get a subsidy amounting to 15-35% of the project cost from the government.",
-      schemePrice: 0.01,
-      status: "Approved",
-      officer: "Mr. Singh",
-    },
-    {
-      id: "P03",
-      schemeImage: schemes_logo,
-      SchemeName: "Prime Minister Employment Generation Programme",
-      schemeDescription:
-        " The scheme is implemented by Khadi and Village Industries Commission (KVIC) functioning as the nodal agency at the national level. At the state level, the scheme is implemented through State KVIC Directorates, State Khad and Village Industries Boards (KVIBs), District Industries Centres (DICs) and banks. In such cases KVIC routes government subsidy through designated banks for eventual disbursal  to the beneficiaries / entrepreneurs directly into their bank accounts.",
-      schemeBenefits:
-        "The Prime Minister Employment Generation Programme (PMEGP) is a Government of India-backed credit-linked subsidy scheme. Under this scheme, beneficiaries can get a subsidy amounting to 15-35% of the project cost from the government.",
-      schemePrice: 0.01,
-      status: "Rejected",
-      officer: "Mr. Singh",
-    },
-  ];
-  const address = "0xB90657d0af39EdF73bf5553da9BDF2f68Ae16198";
+  const copyToClipboard=async(text)=>{
+    try {
+      await navigator.clipboard.writeText(text);
+      console.log('Content copied to clipboard');
+      alert("text copied")
+    } catch (err) {
+      console.error('Failed to copy: ', err);
+    }
+  }
+ const disconnectMetamask=()=>{
+  sessionStorage.removeItem("login")
+  sessionStorage.removeItem("username")
+  window.location.href="/"
+ }
   return (
     
     <div className={classes.OuterContainer}>
       {
-        userData&&schemeData.length>0?
+        userData.account?
        <div className={classes.InnerContainer}>
         {console.log(schemeData)}
         <div className={classes.MainContainer}>
@@ -91,7 +66,7 @@ export default function UserProfilePage() {
                 <p>Metamask Address : </p>
                 <span>
                   {userData.account.slice(0, 6) + "..." + userData.account.slice(-4)}
-                  <img src={clipboard} alt="clipboard" />
+                  <img  onClick={()=>{copyToClipboard(userData.account)}} src={clipboard} alt="clipboard" />
                 </span>
               </div>
               <div className={classes.WalletBalance}>
@@ -100,7 +75,7 @@ export default function UserProfilePage() {
                   ? parseFloat(userData.balance).toFixed(4)
                   : userData.balance} ETH</span>
               </div>
-              <div className={classes.DisconnectButton}>
+              <div className={classes.DisconnectButton} onClick={disconnectMetamask}>
                 <button type="button">Disconnect from Metamask</button>
               </div>
             </div>
@@ -110,7 +85,8 @@ export default function UserProfilePage() {
               <p>Applied Schemes</p>
             </div>
             <div className={classes.SchemesContainer}>
-              {schemeData.map((schemes) => {
+              {schemeData.length>0?
+              schemeData.map((schemes) => {
                 return (
                   <div
                     className={AllSchemeClass.SingleCardContainer}
@@ -179,12 +155,14 @@ export default function UserProfilePage() {
                     </div>
                   </div>
                 );
-              })}
+              }):<div>
+                 <p style={{fontSize:"48px",padding:"10px 0 20px 0", fontWeight:"bolder", fontFamily:'OpenSans-Regular'}}>No Data</p>
+                </div>}
             </div>
           </div>
         </div>
       </div>:<div className={classes.Load}>
-        <p>Loading...</p>
+        <p style={{fontSize:"48px",padding:"10px 0 20px 0", fontWeight:"bolder", fontFamily:'OpenSans-Regular'}}>Loading...</p>
       </div>
 }
     </div>
