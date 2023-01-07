@@ -10,6 +10,7 @@ import {  setDoc,doc } from "firebase/firestore";
 import { db } from "../../CustomHook/Firebase";
 import donation from '../../../abi/donation.json'
 import Web3 from "web3";
+import { ALL_SCHEMES } from "../../../URL";
 export default function SchemeForm() {
   const [applicationData,setApplicationData]=useState({
     name:null,
@@ -106,7 +107,7 @@ const submitHandler=()=>{
       <div className={classes.InnerContainer}>
         <div className={classes.MainContainer}>
           <div className={classes.BackSchemesContainer}>
-          <Link style={{textDecoration:"none"}} to="/AllSchemes">
+          <Link style={{textDecoration:"none"}} to={ALL_SCHEMES}>
             <button>
               <img src={arrow} alt="arrow" />
               Go back to all Schemes

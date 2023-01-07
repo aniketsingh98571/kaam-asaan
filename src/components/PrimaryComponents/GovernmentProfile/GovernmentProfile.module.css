@@ -113,3 +113,8 @@ cursor: pointer;
     padding: 0 0 30px 0;
     flex-wrap: wrap;
 }
+.StatsText p{
+    font-size: 32px;
+    font-family: OpenSans-SemiBold;
+    margin-top: 10px;
+}

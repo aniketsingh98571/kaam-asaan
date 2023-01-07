@@ -4,6 +4,7 @@ import search from "../../../assets/images/search.png";
 import filter from "../../../assets/images/filter.png";
 import schemes_logo from "../../../assets/images/scheme_logo.png";
 import { Link } from "react-router-dom";
+import {SCHEME} from '../../../URL'
 export default function AllSchemes() {
     const AllSchemes={
     Popular:[   
@@ -137,7 +138,7 @@ export default function AllSchemes() {
                                 </p>
                               </div>
                               <div className={classes.ButtonContainer}>
-                              <Link to="/Scheme">
+                              <Link to={SCHEME}>
                                 <button type="button">Apply</button>
                                 </Link>
                               </div>

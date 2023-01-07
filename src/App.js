@@ -12,21 +12,22 @@ import AboutUs from './components/PrimaryComponents/AboutUs/AboutUs';
 import GovernmentProfile from './components/PrimaryComponents/GovernmentProfile/GovernmentProfile';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
+import {HOME,ALL_SCHEMES,LOGIN,FORM,LEARN,ABOUT,ADMIN,PROFILE,SCHEME} from './URL'
 function App() {
   return (
     <>
     <BrowserRouter>
    <Header/>
    <Routes>
-   <Route exact path="/" element={<HeroSection/>}/>
-   <Route exact path="/AllSchemes" element={<AllSchemes/>}/>
-   <Route exact path="/Scheme" element={<SingleSchemePage/>}/>
-   <Route exact path="/form" element={<SchemeForm/>}/>
-   <Route exact path="/profile" element={<UserProfilePage/>}/>
-   <Route exact path="/login" element={<LoginPage/>}/>
-   <Route exact path="/learn" element={<Learn/>}/>
-   <Route exact path="/about" element={<AboutUs/>}/>
-   <Route exact path="/admin" element={<GovernmentProfile/>}/>
+   <Route exact path={HOME} element={<HeroSection/>}/>
+   <Route exact path={ALL_SCHEMES} element={<AllSchemes/>}/>
+   <Route exact path={SCHEME} element={<SingleSchemePage/>}/>
+   <Route exact path={FORM} element={<SchemeForm/>}/>
+   <Route exact path={PROFILE} element={<UserProfilePage/>}/>
+   <Route exact path={LOGIN} element={<LoginPage/>}/>
+ <Route exact path={LEARN} element={<Learn/>}/>
+   <Route exact path={ABOUT} element={<AboutUs/>}/>
+   <Route exact path={ADMIN} element={<GovernmentProfile/>}/>
    </Routes>
    <Footer/>
    </BrowserRouter>

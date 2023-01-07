@@ -6,6 +6,7 @@ import UserName from "../../PopUps/UserName/UserName";
 import { getDocs, collection, addDoc } from "firebase/firestore";
 import { db } from "../../CustomHook/Firebase";
 import MetaMaskConnection from "../../CustomHook/MetaMaskConnection";
+import {HOME,ALL_SCHEMES,LEARN,ABOUT} from '../../../URL'
 export default function Header() {
   const [active, setActive] = useState("Home");
   const [showUsername, setShowUsername] = useState(false);
@@ -68,13 +69,15 @@ export default function Header() {
       <div className={classes.InnerContainer}>
         <div className={classes.FlexContainer}>
           <div className={classes.LeftContainer}>
-            <div className={classes.LogoContainer}>
+           <a href={HOME}> 
+           <div className={classes.LogoContainer}>
               <img src={logo} alt="kaam asaan" />
             </div>
+            </a>
           </div>
           <div className={classes.RightContainer}>
             <div className={classes.ListContainer}>
-              <Link className={classes.Link} to="/">
+              <Link className={classes.Link} to={HOME}>
                 <li
                   onClick={() => setActive("Home")}
                   className={
@@ -84,12 +87,12 @@ export default function Header() {
                   Home
                 </li>
               </Link>
-              <Link className={classes.Link} to="/AllSchemes">
+              <Link className={classes.Link} to={ALL_SCHEMES}>
                 <li
                   onClick={() => setActive("AllSchemes")}
                   className={
                     active === "AllSchemes" ||
-                    window.location.pathname === "/AllSchemes"
+                    window.location.pathname ==={ALL_SCHEMES}
                       ? classes.Active
                       : classes.Inactive
                   }
@@ -107,7 +110,7 @@ export default function Header() {
                   Support
                 </li>
               </a>
-              <Link className={classes.Link} to="/learn">
+              <Link className={classes.Link} to={LEARN}>
                 {" "}
                 <li
                   className={
@@ -118,7 +121,7 @@ export default function Header() {
                   Learn
                 </li>
               </Link>
-              <Link className={classes.Link} to="/about">
+              <Link className={classes.Link} to={ABOUT}>
                 <li
                   className={
                     active === "About" ? classes.Active : classes.Inactive

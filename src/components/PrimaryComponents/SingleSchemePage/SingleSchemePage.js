@@ -3,13 +3,14 @@ import classes from "./SingleSchemePage.module.css";
 import scheme_logo from "../../../assets/images/scheme_logo.png";
 import arrow from "../../../assets/images/top_arrow.png";
 import { Link } from "react-router-dom";
+import { FORM,ALL_SCHEMES } from "../../../URL";
 export default function SingleSchemePage() {
   return (
     <div className={classes.OuterContainer}>
       <div className={classes.InnerContainer}>
         <div className={classes.MainContainer}>
           <div className={classes.BackSchemesContainer}>
-            <Link style={{textDecoration:"none"}} to="/AllSchemes">
+            <Link style={{textDecoration:"none"}} to={ALL_SCHEMES}>
             <button>
               <img src={arrow} alt="arrow" />
               Go back to all Schemes
@@ -74,7 +75,7 @@ export default function SingleSchemePage() {
                   </p>
                 </div>
                 <div className={classes.ButtonContainer}>
-                  <Link to="/form">
+                  <Link to={FORM}>
                   <button type="button">Apply Now</button>
                   </Link>
                 </div>

@@ -7,6 +7,7 @@ import { collection, getDocs,updateDoc,doc} from "firebase/firestore";
 import { db } from "../../CustomHook/Firebase";
 import { pinJson } from "../../CustomHook/IPFSFunctions/pinData"
 import { unpinData } from "../../CustomHook/IPFSFunctions/unpinData"
+import { PieChart, Pie, Legend, Tooltip, ResponsiveContainer } from 'recharts';
 export default function GovernmentProfile(){
     const [showImage,setShowImage]=useState({panCard:false,userImage:false,hash:null})
     const [userData,setUserData]=useState([])
@@ -60,7 +61,13 @@ export default function GovernmentProfile(){
       })
 }
 
-  
+const data01 = [
+    { name: 'Total Application', value: 400 },
+    { name: 'Accepted', value: 150 },
+    { name: 'Rejected', value: 150 },
+    { name: 'Pending', value: 100 },
+    
+];
     return(
         <div className={classes.OuterContainer}>
             {
@@ -148,6 +155,28 @@ export default function GovernmentProfile(){
                         <p style={{fontSize:"48px",padding:"10px 0 20px 0", fontWeight:"bolder", fontFamily:'OpenSans-Regular'}} >loading...</p>
                     </div>
               }
+                </div>
+                <div className={classes.StatsContainer}>
+                    <div className={classes.StatsText}>
+                        <p>Lets Check your stats Officer!</p>
+                    </div>
+                    <div className={classes.PieContainer}>
+                
+        <PieChart width={400} height={400}>
+          <Pie
+            dataKey="value"
+            isAnimationActive={false}
+            data={data01}
+            cx="50%"
+            cy="50%"
+            outerRadius={120}
+            fill="#8884d8"
+            label
+          />
+          <Pie dataKey="value" data={data01} cx={500} cy={200} innerRadius={40} outerRadius={80} fill="#82ca9d" />
+          <Tooltip />
+        </PieChart>
+     </div>
                 </div>
             </div>
         </div>

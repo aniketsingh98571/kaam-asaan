@@ -1,11 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import classes from "./LoginPage.module.css";
 import government from "../../../assets/images/government.png";
 import ethereum from "../../../assets/images/ethereum.png";
 import dodgecoin from "../../../assets/images/dodgecoin.png";
 import logo from "../../../assets/images/logo.png";
 import { Link} from "react-router-dom";
+import { ADMIN } from "../../../URL";
 export default function LoginPage() {
+  const [credentials,setCredentials]=useState({
+    id:null,
+    password:null
+  })
+  const inputHandler=(e)=>{
+    const name=e.target.name
+    const value=e.target.value
+    setCredentials({...credentials,[name]:value})
+  }
+  const checkLogin=()=>{
+    if(credentials.id===process.env.REACT_APP_LOGIN_ID&&credentials.password===process.env.REACT_APP_PASSWORD){
+      window.location.href=ADMIN
+    }
+    else{
+      alert("Wrong Credentials")
+    }
+  }
   return (
     <div className={classes.OuterContainer}>
       <div className={classes.InnerContainer}>
@@ -39,17 +57,17 @@ export default function LoginPage() {
               <div className={classes.FormContainer}>
                 <div className={classes.UserIdContainer}>
                   <p>Government Id</p>
-                  <input type="text" />
+                  <input type="text" name="id" onChange={inputHandler} />
                 </div>
                 <div className={classes.PasswordContainer}>
                   <p>Password</p>
-                  <input type="password" />
+                  <input type="password" name="password" onChange={inputHandler} />
                 </div>
-              <Link to="/admin">
-                  <div className={classes.ButtonContainer}>
+            
+                  <div className={classes.ButtonContainer} onClick={checkLogin}>
                   <button type="button">Log in</button>
                 </div>
-              </Link>
+            
               </div>
             </div>
           </div>
