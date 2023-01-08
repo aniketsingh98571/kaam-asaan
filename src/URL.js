@@ -7,3 +7,4 @@ export const ABOUT="/about"
 export const PROFILE="/profile"
 export const ADMIN="/admin"
 export const LOGIN="/login"
+export const RESTRICTED_URLS=[PROFILE,ADMIN]

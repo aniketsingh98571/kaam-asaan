@@ -18,6 +18,7 @@ export default function LoginPage() {
   }
   const checkLogin=()=>{
     if(credentials.id===process.env.REACT_APP_LOGIN_ID&&credentials.password===process.env.REACT_APP_PASSWORD){
+      sessionStorage.setItem("admin",true)
       window.location.href=ADMIN
     }
     else{

@@ -37,8 +37,8 @@ const pinJson=async(data,username)=>{
         data:mintData,
        headers: {
             'Content-Type': 'application/json',
-            'pinata_api_key': `61dd1e72dc4001a45656`,
-            'pinata_secret_api_key': `0525dc7c902ea85dbea7c7469c24930e21f6287b5ef1bff0bf388314b88e0928`,
+            'pinata_api_key': process.env.REACT_APP_API_KEY,
+            'pinata_secret_api_key': process.env.REACT_APP_SECRET_KEY,
             }
     });
    return resFile.data

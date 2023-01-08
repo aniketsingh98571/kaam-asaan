@@ -15,7 +15,7 @@ export default function HeroSection(){
                 <div className={classes.LeftTextContainer}>
                     <div className={classes.MainTextContainer}>
                         <p>Apply in Government schemes, using Crypto...</p>
-                        <p>Subheadline goes here</p>
+                        <p>Making your Kaam Asaan!</p>
                     </div>
                     <div className={classes.StartButtonContainer}>
                       <Link to="/AllSchemes">  <button type="button">

@@ -1,0 +1,42 @@
+.OuterContainer{
+    /* border: 2px solid blue; */
+    background-image: linear-gradient(to right, rgb(246,238,248),rgb(246,238,248), #fff,rgb(238,259,248));
+}
+.InnerContainer{
+    max-width: var(--max-screen-width);
+}
+.AdminHeaderContainer{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+.LogoContainer{
+    width: 150px;
+    height: auto;
+}
+.LogoContainer img{
+    width: 100%;
+}
+.DisconnectButton button{
+    width: 100%;
+    padding: 10px 0;
+    border: none;
+    outline: none;
+    background: linear-gradient(100.92deg, #282974 40.78%, #01BAD2 187.16%);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    gap: 15px;
+    font-family: 'OpenSans-SemiBold';
+    font-size: 20px;
+    cursor: pointer;
+
+}
+.DisconnectButton{
+    width: 200px;
+}
