@@ -1,70 +1,35 @@
-# Getting Started with Create React App
+<img src="https://github.com/aniketsingh98571/Web_Development/blob/master/KAAM%20ASAAn.png" alt="banner"/>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# KAAM ASAAN - A Decentralised Government portal for applying to Government Schemes : - A Web3 Hackathon Project
 
-## Available Scripts
+## Problem Statement - In today's time, people want things to be done quickly without any hassle. So when it comes to applying for any government scheme on the government portal, we tend to sit back just because we know the process will take a long time, why a long time? 
+Well, 
+1. You must apply for the scheme by filling out the application. 
+2. It gets allocated to an officer [which you don't know, to whom the application gets assigned?]    
+3. You keep checking your application's status on the government portal.
+4. You don't know whether the officer who is handling your application has a good track record of work or not?
+5. Your data can be altered, you may not know ;)
+6. Citizens should also have the right about whether the government is doing its job properly or not.
 
-In the project directory, you can run:
+A lot of problems right?
 
-### `npm start`
+Well, we are here to solve all these problems with the help of "KAAM ASAAN"
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Solution:-
+1. With the help of kaam asaan, you will first fill out the application form.
+2. After you submit your application, your data will be stored on IPFS so that no one can alter it, and it's safe.
+3. You can check, which officer is allocated for your scheme by visiting your profile page and checking the applied scheme
+4. You can also see the track record of a government employee from his profile.
+5. Accountability and transparency of work
+6. The second main reason behind building this platform is that for applying to schemes they will follow a traditional web3 procedure which will help them to understand how blockchain works, how their data is stored, how a transaction is processed etc.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Presentation Link:-
+https://drive.google.com/file/d/1FpJ51ft1rYE7AfqXZtEcw5GUGUgwaZSB/view?usp=sharing
 
-### `npm test`
+## Youtube Link:-
+https://www.youtube.com/watch?v=r4Scc4I09ck
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Demo Link  [Please use desktop only to view, not mobile friendly]:-
+https://kaam-asaan.netlify.app/    
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+ 
