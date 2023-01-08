@@ -7,8 +7,9 @@ import { collection, getDocs,updateDoc,doc} from "firebase/firestore";
 import { db } from "../../CustomHook/Firebase";
 import { pinJson } from "../../CustomHook/IPFSFunctions/pinData"
 import { unpinData } from "../../CustomHook/IPFSFunctions/unpinData"
-import { PieChart, Pie, Legend, Tooltip, ResponsiveContainer } from 'recharts';
+import { PieChart, Pie, Tooltip} from 'recharts';
 export default function GovernmentProfile(){
+    const admin=sessionStorage.getItem("admin")
     const [showImage,setShowImage]=useState({panCard:false,userImage:false,hash:null})
     const [userData,setUserData]=useState([])
     const showImageFunction=(key,hash)=>{
@@ -96,8 +97,10 @@ const data01 = [
                             </div>
                         </div>
                     </div>
-                    {
-                             userData.length>0?
+                    {    
+                       <>  {
+                        admin?
+                 userData.length>0?
                              
                     <div className={classes.BelowContainer}>
                         {console.log(userData)}
@@ -153,7 +156,9 @@ const data01 = [
                         <p style={{fontSize:"48px",padding:"10px 0 20px 0", fontWeight:"bolder", fontFamily:'OpenSans-Regular'}}>No Data</p>
                     </div>:<div className={classes.Loading}>
                         <p style={{fontSize:"48px",padding:"10px 0 20px 0", fontWeight:"bolder", fontFamily:'OpenSans-Regular'}} >loading...</p>
-                    </div>
+                    </div>:""
+}
+                    </>
               }
                 </div>
                 <div className={classes.StatsContainer}>

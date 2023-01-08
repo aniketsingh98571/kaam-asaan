@@ -10,27 +10,27 @@ export default function Process(){
             classname:classes.ContainerOneOne,
             name:"Check Eligibility",
             image:eligibility,
-            description:"Lorem ipsum dolo ener de vere Lorem ipsum dolo ener de vere Lorem ipsum dolo ener de vere Lorem ipsum dolo ener de vere "
+            description:"Our Government Officers makes sure that your submitted application is legit and took necessary actions based on your submited docs."
         },
         {
             background:"linear-gradient(175.41deg, rgba(217, 217, 217, 0) 22.49%, rgba(37, 51, 122, 0.5) 171.4%)",
             classname:classes.ContainerTwo,
             name:"Apply Online",
             image:apply,
-            description:"Lorem ipsum dolo ener de vere Lorem ipsum dolo ener de vere Lorem ipsum dolo ener de vere Lorem ipsum dolo ener de vere "
+            description:"Our portal reduces the friction of you visiting different desks in government offices."
         },
         {
             classname:classes.ContainerThree,
             name:"Get Digital Approval",
             image:approved,
-            description:"Lorem ipsum dolo ener de vere Lorem ipsum dolo ener de vere Lorem ipsum dolo ener de vere Lorem ipsum dolo ener de vere "
+            description:"Based on your application form and documents which you submitted, a government officer will take the necessary action. "
         },
         {
             classname:classes.ContainerFour,
             background:"linear-gradient(175.41deg, rgba(217, 217, 217, 0) 22.49%, rgba(37, 51, 122, 0.5) 171.4%)",
             name:"Track Your Application",
             image:track,
-            description:"Lorem ipsum dolo ener de vere Lorem ipsum dolo ener de vere Lorem ipsum dolo ener de vere Lorem ipsum dolo ener de vere "
+            description:"Track your application by visiting your profile page "
         }
     ]
     return(

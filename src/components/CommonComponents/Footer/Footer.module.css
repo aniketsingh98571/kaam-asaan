@@ -54,7 +54,7 @@ padding: 60px 0;
     color: var(--white);
     font-family: 'OpenSans-SemiBold';
     font-size: 20;
-    
+    cursor: pointer;
 }
 .FourthContainer p img{
     margin:  0 0px 0 10px;

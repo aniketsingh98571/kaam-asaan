@@ -7,6 +7,14 @@ import email from '../../../assets/images/email.png'
 import linkedin from '../../../assets/images/linkedin.png'
 import top_arrow from '../../../assets/images/top_arrow.png'
 export default function Footer(){
+    const scrollToTop=()=>{
+        window.scrollTo({
+            top: 0, 
+            behavior: 'smooth'
+            /* you can also use 'auto' behaviour
+               in place of 'smooth' */
+          });
+    }
     return(
         <div className={classes.OuterContainer}>
             <div className={classes.InnerContainer}>
@@ -25,24 +33,20 @@ export default function Footer(){
                             </div>
                         </div>
                         <div className={classes.SecondContainer}>
-                            <div className={classes.MainText}>
-                                <p>About Kaam Asaan</p>
-                            </div>
+                         
                             <div className={classes.SecondaryContainer}>
-                                <p>Text One</p>
-                                <p>Text Two</p>
+                                <p>Privacy Policy</p>
+                                <p>Terms and Condition</p>
                             </div>
                         </div>
                         <div className={classes.ThirdContainer}>
-                            <div className={classes.MainText}>
-                                <p>About Kaam Asaan</p>
-                            </div>
+                          
                             <div className={classes.SecondaryContainer}>
-                                <p>Text One</p>
-                                <p>Text Two</p>
+                                <p>Government Policy</p>
+                                <p>Kaam Asaan Terms</p>
                             </div>
                         </div>
-                        <div className={classes.FourthContainer}>
+                        <div className={classes.FourthContainer} onClick={scrollToTop}>
                             <p>Back to Top <img src={top_arrow} alt="arrow"/></p>
                         </div>
                     </div>
