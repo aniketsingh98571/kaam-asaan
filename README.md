@@ -32,4 +32,8 @@ https://www.youtube.com/watch?v=r4Scc4I09ck
 ## Demo Link  [Please use desktop only to view, not mobile friendly]:-
 https://kaam-asaan.netlify.app/    
 
- 
+## Smart Contract:-
+https://mumbai.polygonscan.com/address/0xac4908Bd675CDA3F44d913b1C1D084fc68db547e
+
+## Methodology:-
+https://docs.google.com/document/d/1Ny8ALiqWcXrJRA-kfK58aH2AoGAjf81BAgVEGuID6UQ/edit?usp=sharing 
